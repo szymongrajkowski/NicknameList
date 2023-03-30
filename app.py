@@ -11,17 +11,13 @@ def add(nickname):
     con.commit()
 
 def showlist():
-    return 0
-
-@app.route("/")
-def index():
-    add("Marek")
     flash("test")
-    return render_template("index.html")
 
-@app.route("/nicklist". methods=("POST"))
-def nicklist():
-    showlist()
+
+@app.route("/",methods=["POST","GET"])
+def index():
+    form_name = request.form['name_text']
+    flash(form_name)    
     return render_template("index.html")
 
 
